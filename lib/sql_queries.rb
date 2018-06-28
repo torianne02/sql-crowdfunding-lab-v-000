@@ -35,7 +35,7 @@ def selects_the_category_names_and_pledge_amounts_of_all_pledges_in_the_music_ca
 FROM projects AS pr
 LEFT JOIN pledges AS pl ON pr.id = pl.project_id
 WHERE pr.category = 'music'
-GROUP BY pr.category;"
+GROUP BY pr.category, pl.amount;"
 end
 
 def selects_the_category_name_and_the_sum_total_of_the_all_its_pledges_for_the_books_category
