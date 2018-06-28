@@ -18,7 +18,7 @@ def selects_the_titles_and_amount_over_goal_of_all_projects_that_have_met_their_
 "SELECT pr.title, pr.funding_goal, SUM(pl.amount)
 FROM projects AS pr
 LEFT JOIN pledges AS pl ON pr.id = pl.project_id
-WHERE pl.amount > pr.funding_goal
+HAVING SUM(pl.amount) > pr.funding_goal
 GROUP BY pr.title, pr.funding_goal;"
 end
 
