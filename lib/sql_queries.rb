@@ -15,11 +15,11 @@ ORDER BY u.name;"
 end
 
 def selects_the_titles_and_amount_over_goal_of_all_projects_that_have_met_their_funding_goal
-"SELECT pr.titles, pr.funding_goal, SUM(pl.amount)
+"SELECT pr.title, pr.funding_goal, SUM(pl.amount)
 FROM projects AS pr
 LEFT JOIN pledges AS pl ON pr.id = pl.project_id
 WHERE pl.amount > pr.funding_goal
-GROUP BY pr.titles, pr.funding_goal;"
+GROUP BY pr.title, pr.funding_goal;"
 end
 
 def selects_user_names_and_amounts_of_all_pledges_grouped_by_name_then_orders_them_by_the_amount_and_users_name
