@@ -23,7 +23,11 @@ HAVING SUM(pl.amount) >= pr.funding_goal;"
 end
 
 def selects_user_names_and_amounts_of_all_pledges_grouped_by_name_then_orders_them_by_the_amount_and_users_name
-"Write your SQL query Here"
+"SELECT u.name, SUM(pl.amount)
+FROM users AS u
+LEFT JOIN pledges AS pl ON pl.user_id = u.id
+GROUP BY u.name
+ORDER BY SUM(pl.amount), u.name;"
 end
 
 def selects_the_category_names_and_pledge_amounts_of_all_pledges_in_the_music_category
