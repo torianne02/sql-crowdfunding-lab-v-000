@@ -19,7 +19,7 @@ def selects_the_titles_and_amount_over_goal_of_all_projects_that_have_met_their_
 FROM projects AS pr
 LEFT JOIN pledges AS pl ON pr.id = pl.project_id
 GROUP BY pr.title, pr.funding_goal
-HAVING SUM(pl.amount) > pr.funding_goal;"
+HAVING SUM(pl.amount) >= pr.funding_goal;"
 end
 
 def selects_user_names_and_amounts_of_all_pledges_grouped_by_name_then_orders_them_by_the_amount_and_users_name
